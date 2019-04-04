@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>zona_coder &#8211; Zona Coder</title>
+	<atom:link href="/https://estebanbri.github.io/zonacoder-wordpress/author/zona_coder/feed/" rel="self" type="application/rss+xml" />
+	<link>/https://estebanbri.github.io/zonacoder-wordpress</link>
+	<description>Otro sitio realizado con WordPress</description>
+	<lastBuildDate>
+	Thu, 04 Apr 2019 02:44:29 +0000	</lastBuildDate>
+	<language>es-AR</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.1.1</generator>
+	<item>
+		<title>¡Hola mundo!</title>
+		<link>/https://estebanbri.github.io/zonacoder-wordpress/2019/04/03/hola-mundo/</link>
+				<comments>/https://estebanbri.github.io/zonacoder-wordpress/2019/04/03/hola-mundo/#comments</comments>
+				<pubDate>Thu, 04 Apr 2019 02:44:29 +0000</pubDate>
+		<dc:creator><![CDATA[zona_coder]]></dc:creator>
+				<category><![CDATA[Sin categoría]]></category>
+
+		<guid isPermaLink="false">/https://estebanbri.github.io/zonacoder-wordpress/?p=1</guid>
+				<description><![CDATA[Bienvenido a WordPress. Esta es tu primera entrada. Editala o borrala, y después empezá a escribir!]]></description>
+								<content:encoded><![CDATA[
+<p>Bienvenido a WordPress. Esta es tu primera entrada. Editala o borrala, y después empezá a escribir!</p>
+]]></content:encoded>
+							<wfw:commentRss>/https://estebanbri.github.io/zonacoder-wordpress/2019/04/03/hola-mundo/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+							</item>
+	</channel>
+</rss>
