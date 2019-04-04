@@ -1,4 +1,4 @@
-2061
+2062
 <!DOCTYPE html>
 
 <html class="no-js" lang="es-AR">
@@ -8,11 +8,12 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
 
-		<title>ZonaCoder &#8211; Blog sobre Java SE/EE</title>
+		<title>Leyendo {System Properties} y {Environment Variables} gracias a la clase System &#8211; ZonaCoder</title>
 <script>document.documentElement.className = document.documentElement.className.replace("no-js","js");</script>
 <link rel='dns-prefetch' href='//s.w.org' />
 <link rel="alternate" type="application/rss+xml" title="ZonaCoder &raquo; Feed" href="https://estebanbri.github.io/zonacoder/feed/" />
 <link rel="alternate" type="application/rss+xml" title="ZonaCoder &raquo; RSS de los comentarios" href="https://estebanbri.github.io/zonacoder/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="ZonaCoder &raquo; Leyendo {System Properties} y {Environment Variables} gracias a la clase System RSS de los comentarios" href="https://estebanbri.github.io/zonacoder/2019/04/04/leyendo-system-properties-y-environment-variables-gracias-a-la-clase-system/feed/" />
 		<script type="text/javascript">
 			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/estebanbri.github.io\/zonacoder\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.1.1"}};
 			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
@@ -41,15 +42,22 @@ img.emoji {
 <link rel='https://api.w.org/' href='https://estebanbri.github.io/zonacoder/wp-json/' />
 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://estebanbri.github.io/zonacoder/xmlrpc.php?rsd" />
 <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://estebanbri.github.io/zonacoder/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='¡Hola mundo!' href='https://estebanbri.github.io/zonacoder/2019/04/03/hola-mundo/' />
 <meta name="generator" content="WordPress 5.1.1" />
-<!-- Customizer CSS --><style type="text/css">body a { color:#3870f4; }body a:hover { color:#3870f4; }.blog-title a:hover { color:#3870f4; }.main-menu li:hover > a { color:#3870f4; }.main-menu > .menu-item-has-children > a:after { border-top-color:#3870f4; }.main-menu > .menu-item-has-children > a:hover:after { border-top-color:#3870f4; }.sticky-post { background:#3870f4; }.sticky-post:after { border-right-color:#3870f4; }.sticky-post:after { border-left-color:#3870f4; }.post-meta a { color:#3870f4; }.post-meta a:hover { border-bottom-color:#3870f4; }.post-content a { color:#3870f4; }.post-content a:hover { color:#3870f4; }.post-content blockquote:after { color:#3870f4; }.post-content input[type="submit"]:hover { background:#3870f4; }.post-content input[type="button"]:hover { background:#3870f4; }.post-content input[type="reset"]:hover { background:#3870f4; }.post-content .page-links a:hover { background:#3870f4; }.post-content .has-accent-color { color:#3870f4; }.post-content .has-accent-background-color { background-color:#3870f4; }.post-tags a:hover { background:#3870f4; }.post-tags a:hover:before { border-right-color:#3870f4; }.post-navigation h4 a:hover { color:#3870f4; }.comments-title-link a { color:#3870f4; }.comments .pingbacks li a:hover { color:#3870f4; }.comment-header h4 a:hover { color:#3870f4; }.bypostauthor .comment-author-icon { background:#3870f4; }.form-submit #submit:hover { background-color:#3870f4; }.comments-nav a:hover { color:#3870f4; }.pingbacks-title { border-bottom-color:#3870f4; }.archive-navigation a:hover { color:#3870f4; }.widget-title { border-bottom-color:#3870f4; }.widget-content .textwidget a:hover { color:#3870f4; }.widget_archive li a:hover { color:#3870f4; }.widget_categories li a:hover { color:#3870f4; }.widget_meta li a:hover { color:#3870f4; }.widget_nav_menu li a:hover { color:#3870f4; }.widget_rss .widget-content ul a.rsswidget:hover { color:#3870f4; }#wp-calendar thead th { color:#3870f4; }#wp-calendar tfoot a:hover { color:#3870f4; }.widget .tagcloud a:hover { background:#3870f4; }.widget .tagcloud a:hover:before { border-right-color:#3870f4; }.footer .widget .tagcloud a:hover { background:#3870f4; }.footer .widget .tagcloud a:hover:before { border-right-color:#3870f4; }.search-button:hover .genericon { color:#3870f4; }.wrapper .search-button:hover .genericon { color:#3870f4; }.footer .search-button:hover .genericon { color:#3870f4; }.credits .sep { color:#3870f4; }.credits p a:hover { color:#3870f4; }.nav-toggle.active .bar { background-color:#3870f4; }.search-toggle.active .genericon { color:#3870f4; }.mobile-menu .current-menu-item:before { color:#3870f4; }.mobile-menu .current_page_item:before { color:#3870f4; }</style><!--/Customizer CSS--><link rel="icon" href="https://estebanbri.github.io/zonacoder/wp-content/uploads/2019/04/logozonacoder-88x88.jpg" sizes="32x32" />
+<link rel="canonical" href="https://estebanbri.github.io/zonacoder/2019/04/04/leyendo-system-properties-y-environment-variables-gracias-a-la-clase-system/" />
+<link rel='shortlink' href='https://estebanbri.github.io/zonacoder/?p=5' />
+<link rel="alternate" type="application/json+oembed" href="https://estebanbri.github.io/zonacoder/wp-json/oembed/1.0/embed?url=https%3A%2F%2Festebanbri.github.io%2Fzonacoder%2F2019%2F04%2F04%2Fleyendo-system-properties-y-environment-variables-gracias-a-la-clase-system%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://estebanbri.github.io/zonacoder/wp-json/oembed/1.0/embed?url=https%3A%2F%2Festebanbri.github.io%2Fzonacoder%2F2019%2F04%2F04%2Fleyendo-system-properties-y-environment-variables-gracias-a-la-clase-system%2F&#038;format=xml" />
+<!-- Customizer CSS --><style type="text/css">body a { color:#3870f4; }body a:hover { color:#3870f4; }.blog-title a:hover { color:#3870f4; }.main-menu li:hover > a { color:#3870f4; }.main-menu > .menu-item-has-children > a:after { border-top-color:#3870f4; }.main-menu > .menu-item-has-children > a:hover:after { border-top-color:#3870f4; }.sticky-post { background:#3870f4; }.sticky-post:after { border-right-color:#3870f4; }.sticky-post:after { border-left-color:#3870f4; }.post-meta a { color:#3870f4; }.post-meta a:hover { border-bottom-color:#3870f4; }.post-content a { color:#3870f4; }.post-content a:hover { color:#3870f4; }.post-content blockquote:after { color:#3870f4; }.post-content input[type="submit"]:hover { background:#3870f4; }.post-content input[type="button"]:hover { background:#3870f4; }.post-content input[type="reset"]:hover { background:#3870f4; }.post-content .page-links a:hover { background:#3870f4; }.post-content .has-accent-color { color:#3870f4; }.post-content .has-accent-background-color { background-color:#3870f4; }.post-tags a:hover { background:#3870f4; }.post-tags a:hover:before { border-right-color:#3870f4; }.post-navigation h4 a:hover { color:#3870f4; }.comments-title-link a { color:#3870f4; }.comments .pingbacks li a:hover { color:#3870f4; }.comment-header h4 a:hover { color:#3870f4; }.bypostauthor .comment-author-icon { background:#3870f4; }.form-submit #submit:hover { background-color:#3870f4; }.comments-nav a:hover { color:#3870f4; }.pingbacks-title { border-bottom-color:#3870f4; }.archive-navigation a:hover { color:#3870f4; }.widget-title { border-bottom-color:#3870f4; }.widget-content .textwidget a:hover { color:#3870f4; }.widget_archive li a:hover { color:#3870f4; }.widget_categories li a:hover { color:#3870f4; }.widget_meta li a:hover { color:#3870f4; }.widget_nav_menu li a:hover { color:#3870f4; }.widget_rss .widget-content ul a.rsswidget:hover { color:#3870f4; }#wp-calendar thead th { color:#3870f4; }#wp-calendar tfoot a:hover { color:#3870f4; }.widget .tagcloud a:hover { background:#3870f4; }.widget .tagcloud a:hover:before { border-right-color:#3870f4; }.footer .widget .tagcloud a:hover { background:#3870f4; }.footer .widget .tagcloud a:hover:before { border-right-color:#3870f4; }.search-button:hover .genericon { color:#3870f4; }.wrapper .search-button:hover .genericon { color:#3870f4; }.footer .search-button:hover .genericon { color:#3870f4; }
+22e3
+.credits .sep { color:#3870f4; }.credits p a:hover { color:#3870f4; }.nav-toggle.active .bar { background-color:#3870f4; }.search-toggle.active .genericon { color:#3870f4; }.mobile-menu .current-menu-item:before { color:#3870f4; }.mobile-menu .current_page_item:before { color:#3870f4; }</style><!--/Customizer CSS--><link rel="icon" href="https://estebanbri.github.io/zonacoder/wp-content/uploads/2019/04/logozonacoder-88x88.jpg" sizes="32x32" />
 <link rel="icon" href="https://estebanbri.github.io/zonacoder/wp-content/uploads/2019/04/logozonacoder.jpg" sizes="192x192" />
 <link rel="apple-touch-icon-precomposed" href="https://estebanbri.github.io/zonacoder/wp-content/uploads/2019/04/logozonacoder.jpg" />
 <meta name="msapplication-TileImage" content="https://estebanbri.github.io/zonacoder/wp-content/uploads/2019/04/logozonacoder.jpg" />
 
 	</head>
 
-	<body class="home blog">
+	<body class="post-template-default single single-post postid-5 single-format-standard">
 
 		<div class="header-wrapper">
 
@@ -59,7 +67,7 @@ img.emoji {
 
 					
 						<a class="blog-logo" href='https://estebanbri.github.io/zonacoder/' title='ZonaCoder &mdash; Blog sobre Java SE/EE' rel='home'>
-							<img src='https://estebanbri.github.io/zonacoder/wp-content/uploads/2019/04/logozonacoder.jpg' alt='ZonaCoder2bf1'>
+							<img src='https://estebanbri.github.io/zonacoder/wp-content/uploads/2019/04/logozonacoder.jpg' alt='ZonaCoder'>
 						</a>
 
 					
@@ -133,22 +141,15 @@ img.emoji {
 		<div class="content">
 
 			
-			
-				<div class="posts" id="posts">
+					<div id="post-5" class="post single post-5 type-post status-publish format-standard hentry category-sin-categoria">
 
-					<div id="post-5" class="post post-5 type-post status-publish format-standard hentry category-sin-categoria">
+						<div class="post-inner">
 
-	
-	
-	<div class="post-inner">
+							<div class="post-header">
 
-		
-			<div class="post-header">
+								<h1 class="post-title"><a href="https://estebanbri.github.io/zonacoder/2019/04/04/leyendo-system-properties-y-environment-variables-gracias-a-la-clase-system/">Leyendo {System Properties} y {Environment Variables} gracias a la clase System</a></h1>
 
-				
-					<h2 class="post-title"><a href="https://estebanbri.github.io/zonacoder/2019/04/04/leyendo-system-properties-y-environment-variables-gracias-a-la-clase-system/">Leyendo {System Properties} y {Environment Variables} gracias a la clase System</a></h2>
-
-							
+										
 		<div class="post-meta">
 
 			<p class="post-author"><span>By </span><a href="https://estebanbri.github.io/zonacoder/author/zona_coder/" title="Entradas de zona_coder" rel="author">zona_coder</a></p>
@@ -161,12 +162,12 @@ img.emoji {
 		</div>
 
 		
-			</div><!-- .post-header -->
+							</div><!-- .post-header -->
 
-		
-		
-			<div class="post-content">
-				
+							
+								<div class="post-content">
+
+									
 <p>Una de las facilidades que nos provee la clase System (java.lang.System), es poder acceder a ‘System Properties’ (Propiedades del Sistema Utilizada por la JVM) y también a ‘Environment Variables’ (de SO), siendo ambos definidos de manera externa a nuestro programa.</p>
 
 
@@ -340,62 +341,52 @@ img.emoji {
 
 
 <ul><li>Una de ellas es que las Properties estan contenidas unicamente dentro de la JVM mientras que la Environment Variables son globales a nivel de SO es decir disponible a todas las aplicaciones corriendo en la misma maquina. En resumen tienen diferente SCOPE.</li><li>Las Properties podemos modicarlas en RUNTIME mientras que las Environment Variables son copias inmutables de las variables de entorno del SO.</li><li>Las Properites obligadamente deben estar presentes al momento de empaquetar (packaging ) nuestra aplicacion, mientras que las Environment Variables podemos crearlas en cualquier momento.</li></ul>
-			</div>
 
-			<div class="clear"></div>
+145c
 
-			
-	</div><!-- .post-inner -->
+								</div>
 
-</div><!-- .post -->
-<div id="post-1" class="post post-1 type-post status-publish format-standard hentry category-sin-categoria">
+								<div class="clear"></div>
 
-	
-	
-	<div class="post-inner">
+								
+						</div><!-- .post-inner -->
 
-		
-			<div class="post-header">
+						
+								<div class="post-navigation">
 
-				
-					<h2 class="post-title"><a href="https://estebanbri.github.io/zonacoder/2019/04/03/hola-mundo/">¡Hola mundo!</a></h2>
+									<div class="post-navigation-inner">
 
-							
-		<div class="post-meta">
+										
+											<div class="post-nav-prev">
+												<p>Previous</p>
+																								<h4><a href="https://estebanbri.github.io/zonacoder/2019/04/03/hola-mundo/" title="Previous post: ¡Hola mundo!">¡Hola mundo!</a></h4>
+											</div>
 
-			<p class="post-author"><span>By </span><a href="https://estebanbri.github.io/zonacoder/author/zona_coder/" title="Entradas de zona_coder" rel="author">zona_coder</a></p>
+											
+										<div class="clear"></div>
 
-			<p class="post-date"><span>On </span><a href="https://estebanbri.github.io/zonacoder/2019/04/03/hola-mundo/">3 abril, 2019</a></p>
+									</div><!-- .post-navigation-inner -->
 
-							<p class="post-categories"><span>In </span><a href="https://estebanbri.github.io/zonacoder/category/sin-categoria/" rel="category tag">Sin categoría</a></p>
-			
-			
-		</div>
+								</div><!-- .post-navigation -->
 
-		
-			</div><!-- .post-header -->
+								<div class="respond-container">	<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Deja un comentario <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://estebanbri.github.io/zonacoder/2019/04/04/leyendo-system-properties-y-environment-variables-gracias-a-la-clase-system/#respond" style="display:none;">Cancelar respuesta</a></small></h3>			<form action="https://estebanbri.github.io/zonacoder/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">Tu dirección de correo electrónico no será publicada.</span> Los campos obligatorios están marcados con <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comentario</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">Nombre <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required='required' /></p>
+<p class="comment-form-email"><label for="email">Correo electrónico <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" maxlength="100" aria-describedby="email-notes" required='required' /></p>
+<p class="comment-form-url"><label for="url">Web</label> <input id="url" name="url" type="text" value="" size="30" maxlength="200" /></p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" /><label for="wp-comment-cookies-consent">Guardar mi nombre, correo electrónico y sitio web en este navegador para la próxima vez que haga un comentario.</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Publicar comentario" /> <input type='hidden' name='comment_post_ID' value='5' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>			</form>
+			</div><!-- #respond -->
+	</div><!-- .respond-container -->
+					</div><!-- .post -->
 
-		
-		
-			<div class="post-content">
-				
-<p>Bienvenido a WordPress. Esta es tu primera entrada. Editala o borrala, y después empezá a escribir!</p>
-			</div>
-
-			<div class="clear"></div>
-
-			
-	</div><!-- .post-inner -->
-
-</div><!-- .post -->
-
-				</div><!-- .posts -->
-
-				
-			
+					
 		</div><!-- .content -->
 
-		<div class="sidebar">
+		
+			<div class="sidebar">
 
 	<div class="widget widget_search"><div class="widget-content"><form method="get" class="search-form" id="search-form" action="https://estebanbri.github.io/zonacoder/">
 	<input type="search" class="search-field" placeholder="Search form" name="s" id="s" />
@@ -416,8 +407,9 @@ img.emoji {
 			</div><div class="clear"></div></div>
 </div><!-- .sidebar -->
 
-		<div class="clear"></div>
+			<div class="clear"></div>
 
+		
 	</div><!-- .section-inner -->
 
 </div><!-- .wrapper -->
@@ -434,6 +426,7 @@ img.emoji {
 </div><!-- .credits.section -->
 
 <script type='text/javascript' src='https://estebanbri.github.io/zonacoder/wp-content/themes/lovecraft/js/global.js?ver=5.1.1'></script>
+<script type='text/javascript' src='https://estebanbri.github.io/zonacoder/wp-includes/js/comment-reply.min.js?ver=5.1.1'></script>
 <script type='text/javascript' src='https://estebanbri.github.io/zonacoder/wp-includes/js/wp-embed.min.js?ver=5.1.1'></script>
 
 </body>
